@@ -7,12 +7,12 @@ except ImportError:
     from yaml import Loader
 
 if __name__ == '__main__':
-    stream = open("foo.yaml", 'r')
-    dictionary = yaml.load_all(stream, Loader)
+    with open("foo.yaml", 'r') as stream:
+        dictionary = yaml.load_all(stream, Loader)
 
-    for doc in dictionary:
-        print("New document:")
-        for key, value in doc.items():
-            print(key + " : " + str(value))
-            if type(value) is list:
-                print(str(len(value)))
+        for doc in dictionary:
+            print("New document:")
+            for key, value in doc.items():
+                print(key + " : " + str(value))
+                if type(value) is list:
+                    print(str(len(value)))
